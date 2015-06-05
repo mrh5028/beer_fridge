@@ -4,7 +4,8 @@ A bottle.py app to keep track of beers in your fridge
 
 ## To Add ##
 
-*Stylesheets
+*Editing of existing beer
+*Stylesheets (very ugly right now)
 *Cleanup of zeroed out beers
 *Texting functionality
 *Analysis features

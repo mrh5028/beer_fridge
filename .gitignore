@@ -60,3 +60,5 @@ target/
 
 #Other Stuff
 test.py
+*.pyc
+*.db
