@@ -1,8 +1,8 @@
-%#template for the form for a new task
-<p>Add a new task to the beer list:</p>
+%#template for the form for a new beer
+<p>Add a new beer to the beer list:</p>
 <form action="/new" method="GET">
-<input type="text" size="100" maxlength="100" name="brewer">
-<input type="text" size="100" maxlength="100" name="beer">
-<input type="text" size="100" maxlength="100" name="amount">
+Brewer <input type="text" size="25" maxlength="100" name="brewer"><br>
+Beer <input type="text" size="25" maxlength="100" name="beer"><br>
+Amount <input type="text" size="25" maxlength="100" name="amount"><br>
 <input type="submit" name="save" value="save">
 </form>
