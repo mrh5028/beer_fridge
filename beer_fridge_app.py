@@ -1,8 +1,15 @@
 import sqlite3
-from bottle import Bottle, route, run, debug, template, request, static_file, error, post, redirect
+from bottle import Bottle, route, run, debug, template, request, static_file, error, post, redirect, get
+import os
 
 app = Bottle()
 
+# Static Routes
+@app.route('/static/:path#.+#', name='static')
+def static(path):
+    return static_file(path, root='static')
+
+# Main App
 @app.route('/')
 @app.route('/display', method=['GET', 'POST'])
 def display():
