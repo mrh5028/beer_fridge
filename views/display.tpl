@@ -9,7 +9,7 @@
 
 	<!--CSS-START-->
 	<link href="/static/css/bootstrap.css" rel="stylesheet" />
-	<link href="/static/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 	<!--CSS-END-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -51,6 +51,14 @@
 		
 <h2>The available beers are:</h2>
 <table class="table table-striped">
+	<tr>
+		<td><h4>ID</h4></td>
+		<td><h4>Brewery</h4></td>
+		<td><h4>Name</h4></td>
+		<td><h4>Amount</h4></td>
+		<td><h4>Info</h4></td>
+		<td><h4>Add</h4></td>
+		<td><h4>Subtract</h4></td>
 %for row in rows:
     <tr>
     <!-- Grab beer id-->
@@ -61,8 +69,9 @@
         <form action="/display" method="POST">
             <!-- input type hidden, and value is the ID of the beer -->
             <input type = "hidden" name ="beer_id" value= "{{p_id}}">
-            <td><input type ="submit" name="Add" value="Add" class="btn btn-primary"</td>
-            <td><input type ="submit" name="Sub" value="Subtract" class="btn btn-primary"></td>
+			<td><button type ="submit" name="info" class="btn btn-success"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></button></td>
+            <td><button type ="submit" name="add" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></td>
+            <td><button type ="submit" name="sub" class="btn btn-primary"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button></td>
         </form>
     </tr>
 %end

@@ -17,6 +17,7 @@
 
 </head>
 <body>
+
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,9 +34,8 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="main-nav">
 	      <ul class="nav navbar-nav">
-	        <li><a href="/display">View Beers</a></li>
-			<li class="active"><a href="/new">Add Beer<span class="sr-only">(current)</span></a></li>
-	        
+	        <li class="active"><a href="/display">View Beers<span class="sr-only">(current)</span></a></li>
+	        <li><a href="/new">Add Beer</a></li>
 	      </ul>
 	      <form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">
@@ -47,18 +47,29 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 
-	
-	<div class="container-fluid">	
-		<h2>Add a new beer:</h2>
-			<form action="/new" method="GET">
-				Brewer <input type="text" size="25" maxlength="100" name="brewer"><br>
-				Beer Name <input type="text" size="25" maxlength="100" name="beer"><br>
-				Style <input type="text" size="25" maxlength="100" name="style"><br>
-				ABV <input type="text" size="25" maxlength="100" name="abv"><br>
-				Size <input type="text" size="25" maxlength="100" name="size"><br>
-				Amount <input type="text" size="25" maxlength="100" name="amount"><br>
-				<input type="submit" name="save" value="Save" class="btn btn-primary">
-			</form>
-	</div>
+<div class="container-fluid">	
+		
+<h2>Beer Info:</h2>
+<table class="table table-striped">
+	<tr>
+		<td><h4>ID</h4></td>
+		<td><h4>Brewery</h4></td>
+		<td><h4>Name</h4></td>
+		<td><h4>Style</h4></td>
+		<td><h4>ABV</h4></td>
+		<td><h4>Size</h4></td>
+		<td><h4>Amount</h4></td>
+%for row in rows:
+    <tr>
+    <!-- Grab beer id-->
+    %p_id = row[0] 
+    %for col in row:
+        <td>{{col}}</td>
+    %end
+    </tr>
+%end
+</table>
+</div>
 </body>
-</body>
+</html>
+
