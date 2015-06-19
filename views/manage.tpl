@@ -63,6 +63,7 @@
 		<td><h4>Amount</h4></td>
 		<td><h4>Remove</h4></td>
 %for row in rows:
+<form action="/manage" method="POST">
     <tr>
     <!-- Grab beer id-->
     %p_id = row[0] 
@@ -73,6 +74,7 @@
             <!-- input type hidden, and value is the ID of the beer -->
             <input type = "hidden" name ="beer_id" value= "{{p_id}}">
 			<td><button type ="submit" name="del_beer" class="btn btn-danger">Delete</button></td>
+		</form>
     </tr>
 %end
 </table>

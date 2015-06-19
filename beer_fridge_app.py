@@ -73,9 +73,9 @@ def new_beer():
 		new_abv = request.GET.get('abv').strip()
 		new_size = request.GET.get('size').strip()
 		new_amount = request.GET.get('amount').strip()
+		
 		conn = sqlite3.connect('beers.db')
 		c = conn.cursor()
-		
 		c.execute("INSERT INTO beer (brewer, beer, style, abv, size, amount)VALUES (?,?,?,?,?,?)", (new_brewer, new_beer, new_style, new_abv, new_size, new_amount))
 		new_id = c.lastrowid
 		conn.commit()
