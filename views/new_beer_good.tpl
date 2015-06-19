@@ -10,13 +10,10 @@
 	<!--CSS-START-->
 	<link href="/static/css/bootstrap.css" rel="stylesheet" />
 	<link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-	<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.css" rel="stylesheet"/>
 	<!--CSS-END-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
 	<script src="/static/js/validator.js"></script>
-	<script src="/static/js/styles.js"></script>
 
 </head>
 <body>
@@ -78,21 +75,21 @@
 		  <div class="form-group">
 		    <label for="beer" class="col-sm-2 control-label">ABV</label>
 		    <div class="col-sm-10">
-		      <input type="text" size="25" maxlength="100" id="abv" name="abv" placeholder="ABV" pattern = "\d+(\.\d*)?" data-error="Please enter a valid number EX: 5.5" required>
+		      <input type="text" size="25" maxlength="100" id="abv" name="abv" placeholder="ABV" pattern = "\d+(\.\d*)?" data-error="Please enter a valid number" required>
 		    </div>
 			<div class="help-block with-errors"></div>
 		  </div>
 		  <div class="form-group">
 		    <label for="beer" class="col-sm-2 control-label">Size</label>
 		    <div class="col-sm-10">
-		      <input type="text" size="25" maxlength="100" id="size" name="size" placeholder="Size (oz)" pattern = "\d+(\.\d*)?"  data-error="Please enter a valid number EX: 12" required>
+		      <input type="text" size="25" maxlength="100" id="size" name="size" placeholder="Size (oz)" pattern = "\d+(\.\d*)?"  data-error="Please enter a valid number" required>
 		    </div>
 		 	<div class="help-block with-errors"></div>
 		  </div>
 		  <div class="form-group">
 		    <label for="beer" class="col-sm-2 control-label">Amount</label>
 		    <div class="col-sm-10">
-		      <input type="text" size="25" maxlength="100" id="amount" name="amount" placeholder="Amount/Number of Beers" pattern = "\d+(\.\d*)?" data-error="Please enter a valid number EX: 6" required>
+		      <input type="text" size="25" maxlength="100" id="amount" name="amount" placeholder="Amount/Number of Beers" pattern = "\d+(\.\d*)?" data-error="Please enter a valid number" required>
 		    </div>
 			<div class="help-block with-errors"></div>
 		  </div>
