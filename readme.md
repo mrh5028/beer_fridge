@@ -3,13 +3,12 @@
 A bottle.py app to keep track of beers in your fridge
 
 ## To Add ##
-
 *Editing of existing beer
-*Stylesheets (very ugly right now)
-*Cleanup of zeroed out beers
 *Texting functionality
-*Analysis features
+*Analysis/stats features
+	*Time tracking
+*Login and Authentication
+*Ratings
 
 ## Eventually ##
 *Camera integration to add/remove beers
-*Raspberry Pi
