@@ -5,7 +5,7 @@ import time
 
 app = Bottle()
 
-# Static Routes
+#Static Routes
 @app.route('/static/:path#.+#', name='static')
 def static(path):
     return static_file(path, root='static')
@@ -23,7 +23,7 @@ def display():
 	
 	add = request.POST.get('add') #grab add value
 	sub = request.POST.get('sub') #grab subtract value
-	info = request.POST.get('info') #grab subtract value
+	info = request.POST.get('info') #grab info value
 	b_id = request.POST.get('beer_id') #get beer id
 	
 	if add is not None: #if add was clicked
@@ -51,7 +51,7 @@ def display():
 		output = template('display', rows=result) #otherwise just display
 		return output
 
-#info for one beer
+#Info for one beer
 @app.route('/info/<b_id>', method='GET')
 def info(b_id):
 	conn = sqlite3.connect('beers.db') #connect
@@ -66,7 +66,6 @@ def info(b_id):
 #Add new beer
 @app.route('/new', method='GET')
 def new_beer():
-	
 	if request.GET.get('save', '').strip():
 		new_brewer = request.GET.get('brewer').strip()
 		new_beer = request.GET.get('beer').strip()
@@ -86,5 +85,31 @@ def new_beer():
 
 	else:
 		return template('new_beer.tpl')
+
+#Add new beer
+@app.route('/manage', method=['GET', 'POST'])
+def manage():
+		conn = sqlite3.connect('beers.db') #connect
+		c = conn.cursor()
+		c.execute("SELECT id, brewer, beer, style, abv, size, amount FROM beer;") #get all beers
+		result = c.fetchall()
+		c.close()
+		
+		del_beer = request.POST.get('del_beer') #grab delete value
+		b_id = request.POST.get('beer_id') #get beer id
+		
+		if del_beer is not None: #if delete was clicked
+			conn = sqlite3.connect('beers.db') #connect
+			c = conn.cursor()
+			c.execute("DELETE from beer WHERE id = ?;", (b_id)) #delete beer
+			conn.commit() #commit the chage
+			c.close()
+			
+			redirect("/manage") #refresh the page
+			
+		else:
+			output = template('manage', rows=result)
+			return output
+		
 		
 run(app, host='0.0.0.0', port=8080, debug=True)

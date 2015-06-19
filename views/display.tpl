@@ -28,7 +28,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">Beer Fridge</a>
+	      <a class="navbar-brand" href="/display">Beer Fridge</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,6 +36,7 @@
 	      <ul class="nav navbar-nav">
 	        <li class="active"><a href="/display">View Beers<span class="sr-only">(current)</span></a></li>
 	        <li><a href="/new">Add Beer</a></li>
+			<li><a href="/manage">Manage Beers</a></li>
 	      </ul>
 	      <form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">

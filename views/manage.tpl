@@ -20,7 +20,8 @@
 
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <!-- Brand and toggle get grouped for better mobile 
+	 -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
 	        <span class="sr-only">Toggle navigation</span>
@@ -34,9 +35,9 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="main-nav">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="/display">View Beers<span class="sr-only">(current)</span></a></li>
+	        <li><a href="/display">View Beers</a></li>
 	        <li><a href="/new">Add Beer</a></li>
-			<li><a href="/manage">Manage Beers</a></li>
+			<li class="active"><a href="/manage">Manage Beers<span class="sr-only">(current)</span></a></li>
 	      </ul>
 	      <form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">
@@ -50,7 +51,7 @@
 
 <div class="container-fluid">	
 		
-<h2>Beer Info:</h2>
+<h2>All beers:</h2>
 <table class="table table-striped">
 	<tr>
 		<td><h4>ID</h4></td>
@@ -60,6 +61,7 @@
 		<td><h4>ABV</h4></td>
 		<td><h4>Size</h4></td>
 		<td><h4>Amount</h4></td>
+		<td><h4>Remove</h4></td>
 %for row in rows:
     <tr>
     <!-- Grab beer id-->
@@ -67,6 +69,10 @@
     %for col in row:
         <td>{{col}}</td>
     %end
+		<form action="/manage" method="POST">
+            <!-- input type hidden, and value is the ID of the beer -->
+            <input type = "hidden" name ="beer_id" value= "{{p_id}}">
+			<td><button type ="submit" name="del_beer" class="btn btn-danger">Delete</button></td>
     </tr>
 %end
 </table>

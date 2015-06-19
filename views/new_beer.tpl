@@ -27,7 +27,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">Beer Fridge</a>
+	      <a class="navbar-brand" href="/display">Beer Fridge</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,7 +35,7 @@
 	      <ul class="nav navbar-nav">
 	        <li><a href="/display">View Beers</a></li>
 			<li class="active"><a href="/new">Add Beer<span class="sr-only">(current)</span></a></li>
-	        
+	        <li><a href="/manage">Manage Beers</a></li>
 	      </ul>
 	      <form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">
@@ -50,15 +50,49 @@
 	
 	<div class="container-fluid">	
 		<h2>Add a new beer:</h2>
-			<form action="/new" method="GET">
-				Brewer <input type="text" size="25" maxlength="100" name="brewer"><br>
-				Beer Name <input type="text" size="25" maxlength="100" name="beer"><br>
-				Style <input type="text" size="25" maxlength="100" name="style"><br>
-				ABV <input type="text" size="25" maxlength="100" name="abv"><br>
-				Size <input type="text" size="25" maxlength="100" name="size"><br>
-				Amount <input type="text" size="25" maxlength="100" name="amount"><br>
-				<input type="submit" name="save" value="Save" class="btn btn-primary">
-			</form>
+		<form class="form-horizontal">
+		  <div class="form-group">
+		    <label for="brewer" class="col-sm-2 control-label">Brewery</label>
+		    <div class="col-sm-10">
+		      <input type="text" size="25" maxlength="100" id="brewer" name="brewer" placeholder="Brewery">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="beer" class="col-sm-2 control-label">Beer Name</label>
+		    <div class="col-sm-10">
+		      <input type="text" size="25" maxlength="100" id="beer" name="beer" placeholder="Beer Name">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="beer" class="col-sm-2 control-label">Style</label>
+		    <div class="col-sm-10">
+		      <input type="text" size="25" maxlength="100" id="style" name="style" placeholder="Style">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="beer" class="col-sm-2 control-label">ABV</label>
+		    <div class="col-sm-10">
+		      <input type="text" size="25" maxlength="100" id="abv" name="abv" placeholder="ABV">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="beer" class="col-sm-2 control-label">Size</label>
+		    <div class="col-sm-10">
+		      <input type="text" size="25" maxlength="100" id="size" name="size" placeholder="Size (oz)">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="beer" class="col-sm-2 control-label">Amount</label>
+		    <div class="col-sm-10">
+		      <input type="text" size="25" maxlength="100" id="amount" name="amount" placeholder="Amount/Number of Beers">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <input type="submit" name="save" value="Save" class="btn btn-primary">
+		    </div>
+		  </div>
+		</form>
 	</div>
 </body>
 </body>
