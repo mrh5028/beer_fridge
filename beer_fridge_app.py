@@ -29,7 +29,7 @@ def display():
 	if add is not None: #if add was clicked
 		conn = sqlite3.connect('beers.db') #connect
 		c = conn.cursor()
-		c.execute("UPDATE beer SET amount = amount + 1 WHERE id = ?;", (b_id)) #add a beer
+		c.execute("UPDATE beer SET amount = amount + 1 WHERE id = ?;", (b_id,)) #add a beer
 		conn.commit() #commit the chage
 		c.close()
 		
@@ -38,7 +38,7 @@ def display():
 	elif sub is not None: #if subtract was clicked
 		conn = sqlite3.connect('beers.db') #connect
 		c = conn.cursor()
-		c.execute("UPDATE beer SET amount = amount - 1 WHERE id = ?;", (b_id)) #remove a beer
+		c.execute("UPDATE beer SET amount = amount - 1 WHERE id = ?;", (b_id,)) #remove a beer
 		conn.commit()
 		c.close()
 		
@@ -56,7 +56,7 @@ def display():
 def info(b_id):
 	conn = sqlite3.connect('beers.db') #connect
 	c = conn.cursor()
-	c.execute("SELECT id, brewer, beer, style, abv, size, amount FROM beer WHERE id = ?;", (b_id)) #only want info for one beer
+	c.execute("SELECT id, brewer, beer, style, abv, size, amount FROM beer WHERE id = ?;", (b_id,)) #only want info for one beer
 	result = c.fetchall()
 	c.close()
 
@@ -111,5 +111,10 @@ def manage():
 			output = template('manage', rows=result)
 			return output
 		
+
+#Stats Page
+#@app.route('/stats', method=['GET', 'Post'])
+#def stats():
+
 		
 run(app, host='0.0.0.0', port=8080, debug=True)
