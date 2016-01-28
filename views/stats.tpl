@@ -10,18 +10,19 @@
 	<!--CSS-START-->
 	<link href="/static/css/bootstrap.css" rel="stylesheet" />
 	<link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.css" rel="stylesheet"/>
 	<!--CSS-END-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
+	<script src="/static/js/validator.js"></script>
+	<script src="/static/js/styles.js"></script>
 
 </head>
 <body>
-
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile 
-	 -->
+	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
 	        <span class="sr-only">Toggle navigation</span>
@@ -37,8 +38,8 @@
 	      <ul class="nav navbar-nav">
 	        <li><a href="/display">View Beers</a></li>
 	        <li><a href="/new">Add Beer</a></li>
-			<li class="active"><a href="/manage">Manage Beers<span class="sr-only">(current)</span></a></li>
-			<li><a href="/stats">Stats</a></li>
+	        <li><a href="/manage">Manage Beers</a></li>
+			<li class="active"><a href="/stats">Stats<span class="sr-only">(current)</span></a></li>
 	      </ul>
 	      <form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">
@@ -50,36 +51,12 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 
-<div class="container-fluid">	
-		
-<h2>All beers:</h2>
-<table class="table table-striped">
-	<tr>
-		<td><h4>ID</h4></td>
-		<td><h4>Brewery</h4></td>
-		<td><h4>Name</h4></td>
-		<td><h4>Style</h4></td>
-		<td><h4>ABV</h4></td>
-		<td><h4>Size</h4></td>
-		<td><h4>Amount</h4></td>
-		<td><h4>Remove</h4></td>
-%for row in rows:
-<form action="/manage" method="POST">
-    <tr>
-    <!-- Grab beer id-->
-    %p_id = row[0] 
-    %for col in row:
-        <td>{{col}}</td>
-    %end
-		<form action="/manage" method="POST">
-            <!-- input type hidden, and value is the ID of the beer -->
-            <input type = "hidden" name ="beer_id" value= "{{p_id}}">
-			<td><button type ="submit" name="del_beer" class="btn btn-danger">Delete</button></td>
-		</form>
-    </tr>
-%end
-</table>
-</div>
-</body>
-</html>
+	
+	<div class="container-fluid">	
+		<h1>Total Beers: {{vessels}} vessels<h1>
 
+		<h1>Total Volume: {{volume}} oz<h1>
+
+	</div>
+</body>
+</body>

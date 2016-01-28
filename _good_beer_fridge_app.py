@@ -2,7 +2,6 @@ import sqlite3
 from bottle import Bottle, route, run, debug, template, request, static_file, error, post, redirect, get
 import os
 import time
-import statgen
 
 app = Bottle()
 
@@ -87,7 +86,7 @@ def new_beer():
 	else:
 		return template('new_beer.tpl')
 
-#Manage
+#Add new beer
 @app.route('/manage', method=['GET', 'POST'])
 def manage():
 		conn = sqlite3.connect('beers.db') #connect
@@ -102,7 +101,7 @@ def manage():
 		if del_beer is not None: #if delete was clicked
 			conn = sqlite3.connect('beers.db') #connect
 			c = conn.cursor()
-			c.execute("DELETE from beer WHERE id = ?;", (b_id,)) #delete beer
+			c.execute("DELETE from beer WHERE id = ?;", (b_id)) #delete beer
 			conn.commit() #commit the chage
 			c.close()
 			
@@ -114,12 +113,8 @@ def manage():
 		
 
 #Stats Page
-@app.route('/stats', method=['GET', 'Post'])
-def stats():
-	volume = statgen.total_volume()
-	vessels = statgen.total_vessel()
-	
-	output = template('stats', volume=volume, vessels=vessels)
-	return output
+#@app.route('/stats', method=['GET', 'Post'])
+#def stats():
+
 		
 run(app, host='0.0.0.0', port=8080, debug=True)

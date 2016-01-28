@@ -39,6 +39,7 @@
 	        <li><a href="/display">View Beers</a></li>
 			<li class="active"><a href="/new">Add Beer<span class="sr-only">(current)</span></a></li>
 	        <li><a href="/manage">Manage Beers</a></li>
+			<li><a href="/stats">Stats</a></li>
 	      </ul>
 	      <form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">
