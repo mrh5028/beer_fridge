@@ -1,3 +1,5 @@
+#Statistics generation. More to be added later, for now just the basics
+
 import sqlite3
 
 def total_vessel():

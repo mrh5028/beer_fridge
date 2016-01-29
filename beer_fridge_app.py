@@ -83,7 +83,7 @@ def new_beer():
 		conn.commit()
 		c.close()
 		
-		return ' <META http-equiv="refresh" content="2;URL=/new"> <p>The new beer was inserted into the database, the ID is %s</p>' % new_id
+		return ' <META http-equiv="refresh" content="2;URL=/new"> <p>The new beer was inserted into the database, the ID is %s</p>' % new_id #Confirm entry and refresh
 
 	else:
 		return template('new_beer.tpl')
@@ -117,10 +117,10 @@ def manage():
 #Stats Page
 @app.route('/stats', method=['GET', 'Post'])
 def stats():
-	volume = statgen.total_volume()
-	vessels = statgen.total_vessel()
-	bottles = statgen.total_vessel_type()[0]
-	cans = statgen.total_vessel_type()[1]
+	volume = statgen.total_volume() #total volume
+	vessels = statgen.total_vessel() #total beers
+	bottles = statgen.total_vessel_type()[0] #total bottles
+	cans = statgen.total_vessel_type()[1] #total cans
 	
 	output = template('stats', volume=volume, vessels=vessels, bottles = bottles, cans = cans)
 	return output
