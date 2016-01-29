@@ -59,6 +59,7 @@ docs/_build/
 target/
 
 #Other Stuff
+_good_beer_fridge_app.py
 test.py
 *.pyc
 *.db
