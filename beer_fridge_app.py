@@ -57,7 +57,7 @@ def display():
 def info(b_id):
 	conn = sqlite3.connect('beers.db') #connect
 	c = conn.cursor()
-	c.execute("SELECT id, brewer, beer, style, abv, size, amount FROM beer WHERE id = ?;", (b_id,)) #only want info for one beer
+	c.execute("SELECT id, brewer, beer, style, abv, size, amount, vtype FROM beer WHERE id = ?;", (b_id,)) #only want info for one beer
 	result = c.fetchall()
 	c.close()
 
@@ -74,10 +74,11 @@ def new_beer():
 		new_abv = request.GET.get('abv').strip()
 		new_size = request.GET.get('size').strip()
 		new_amount = request.GET.get('amount').strip()
+		new_vtype = request.GET.get('vtype').strip()
 		
 		conn = sqlite3.connect('beers.db')
 		c = conn.cursor()
-		c.execute("INSERT INTO beer (brewer, beer, style, abv, size, amount)VALUES (?,?,?,?,?,?)", (new_brewer, new_beer, new_style, new_abv, new_size, new_amount))
+		c.execute("INSERT INTO beer (brewer, beer, style, abv, size, amount, vtype)VALUES (?,?,?,?,?,?,?)", (new_brewer, new_beer, new_style, new_abv, new_size, new_amount, new_vtype))
 		new_id = c.lastrowid
 		conn.commit()
 		c.close()
@@ -92,7 +93,7 @@ def new_beer():
 def manage():
 		conn = sqlite3.connect('beers.db') #connect
 		c = conn.cursor()
-		c.execute("SELECT id, brewer, beer, style, abv, size, amount FROM beer;") #get all beers
+		c.execute("SELECT id, brewer, beer, style, abv, size, amount, vtype FROM beer;") #get all beers
 		result = c.fetchall()
 		c.close()
 		

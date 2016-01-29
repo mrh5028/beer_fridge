@@ -61,6 +61,7 @@
 		<td><h4>ABV</h4></td>
 		<td><h4>Size</h4></td>
 		<td><h4>Amount</h4></td>
+		<td><h4>Type</h4></td>
 %for row in rows:
     <tr>
     <!-- Grab beer id-->

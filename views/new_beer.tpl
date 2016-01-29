@@ -98,6 +98,15 @@
 			<div class="help-block with-errors"></div>
 		  </div>
 		  <div class="form-group">
+		    <label for="beer" class="col-sm-2 control-label">Type</label>
+		    <div class="col-sm-10">
+			  <select class="form-control" id="vtype" name="vtype" style="width: 190px; margin-bottom: 20px;">
+				<option>Bottle</option>
+				<option>Can</option>	
+		    </div>
+			<div class="help-block with-errors"></div>
+		  </div>
+		  <div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
 		      <input type="submit" name="save" value="Save" class="btn btn-primary">
 		    </div>
