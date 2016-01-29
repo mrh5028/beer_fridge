@@ -119,8 +119,10 @@ def manage():
 def stats():
 	volume = statgen.total_volume()
 	vessels = statgen.total_vessel()
+	bottles = statgen.total_vessel_type()[0]
+	cans = statgen.total_vessel_type()[1]
 	
-	output = template('stats', volume=volume, vessels=vessels)
+	output = template('stats', volume=volume, vessels=vessels, bottles = bottles, cans = cans)
 	return output
 		
 run(app, host='0.0.0.0', port=8080, debug=True)

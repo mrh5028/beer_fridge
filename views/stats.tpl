@@ -54,6 +54,8 @@
 	
 	<div class="container-fluid">	
 		<h1>Total Beers: {{vessels}} vessels<h1>
+		<h2>Total Bottles: {{bottles}} <h2>
+		<h2>Total Cans: {{cans}} <h2>
 
 		<h1>Total Volume: {{volume}} oz<h1>
 
