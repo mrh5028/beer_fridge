@@ -1,6 +1,4 @@
 import sqlite3
-import os
-import time
 
 def total_vessel():
 	conn = sqlite3.connect('beers.db') #connect
@@ -41,4 +39,3 @@ def total_vessel_type():
 			t_can = t_can +item[0]
 	
 	return (t_bottle, t_can) #return
-	
